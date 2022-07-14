@@ -8,7 +8,7 @@ namespace CountriesApp.DAL.Interfaces
 {
     interface ICountriesDAL
     {
-        public IQueryable<Country> GetCountries();
+        public IEnumerable<Country> GetCountries();
         public Country GetCountry(Guid id);
         public Country GetCountry(string name);
         public void AddCountry(Country country);
