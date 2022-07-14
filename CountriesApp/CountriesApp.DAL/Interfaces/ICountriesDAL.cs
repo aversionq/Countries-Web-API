@@ -12,7 +12,7 @@ namespace CountriesApp.DAL.Interfaces
         public Country GetCountry(Guid id);
         public Country GetCountry(string name);
         public void AddCountry(Country country);
-        public void DeleteCountry(Guid id);
+        public void DeleteCountry(Country country);
         public void UpdateCountry(Country country);
     }
 }
