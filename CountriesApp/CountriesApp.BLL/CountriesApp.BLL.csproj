@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\CountriesApp.DAL\CountriesApp.DAL.csproj" />
   </ItemGroup>
 
 </Project>
