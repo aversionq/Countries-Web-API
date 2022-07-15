@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CountriesApp.DAL
 {
-    class CountriesDAL : ICountriesDAL
+    public class CountriesDAL : ICountriesDAL
     {
         private CountriesDbContext _dbContext;
 

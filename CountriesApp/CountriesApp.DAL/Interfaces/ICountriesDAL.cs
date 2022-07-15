@@ -6,7 +6,7 @@ using CountriesApp.DAL.Entities;
 
 namespace CountriesApp.DAL.Interfaces
 {
-    interface ICountriesDAL
+    public interface ICountriesDAL
     {
         public IEnumerable<Country> GetCountries();
         public Country GetCountry(Guid id);
