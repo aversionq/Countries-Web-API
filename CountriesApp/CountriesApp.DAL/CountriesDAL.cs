@@ -12,9 +12,9 @@ namespace CountriesApp.DAL
     {
         private CountriesDbContext _dbContext;
 
-        public CountriesDAL(CountriesDbContext dbContext)
+        public CountriesDAL()
         {
-            _dbContext = dbContext;
+            _dbContext = new CountriesDbContext();
         }
 
         public void AddCountry(Country country)
