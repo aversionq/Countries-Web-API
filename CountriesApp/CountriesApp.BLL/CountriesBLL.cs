@@ -27,6 +27,7 @@ namespace CountriesApp.BLL
         public void AddCountry(CountryDTO country)
         {
             var countryToAdd = _countriesMapper.Map<CountryDTO, Country>(country);
+            countryToAdd.Id = Guid.NewGuid();
 
             _DAL.AddCountry(countryToAdd);
         }
