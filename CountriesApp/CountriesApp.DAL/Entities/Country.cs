@@ -11,6 +11,7 @@ namespace CountriesApp.DAL.Entities
 {
     public partial class Country
     {
+        [Key]
         [Column("id")]
         public Guid Id { get; set; }
         [Required]
