@@ -16,7 +16,7 @@ namespace CountriesApp.BLL
         private ICountriesDAL _DAL;
         private Mapper _countriesMapper;
 
-        CountriesBLL()
+        public CountriesBLL()
         {
             _DAL = new CountriesDAL();
             var countriesConfig = new MapperConfiguration(cfg => cfg.CreateMap<Country, CountryDTO>().ReverseMap());
