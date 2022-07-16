@@ -5,7 +5,7 @@ using CountriesApp.BLL.Models;
 
 namespace CountriesApp.BLL.Interfaces
 {
-    interface ICountriesBLL
+    public interface ICountriesBLL
     {
         public IEnumerable<CountryDTO> GetCountries();
         public CountryDTO GetCountry(Guid id);

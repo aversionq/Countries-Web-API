@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace CountriesApp.BLL
 {
-    class CountriesBLL : ICountriesBLL
+    public class CountriesBLL : ICountriesBLL
     {
         private ICountriesDAL _DAL;
         private Mapper _countriesMapper;
