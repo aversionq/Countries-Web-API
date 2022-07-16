@@ -35,7 +35,7 @@ namespace CountriesApp.DAL
         {
             modelBuilder.Entity<Country>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).ValueGeneratedNever();
             });
 
             OnModelCreatingPartial(modelBuilder);
