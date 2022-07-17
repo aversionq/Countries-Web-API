@@ -23,7 +23,7 @@ namespace CountriesApp.API.Controllers
 
         [HttpGet]
         [Route("getCountries")]
-        public ActionResult<CountryDTO> GetCountries() => Ok(_BLL.GetCountries());
+        public ActionResult<IEnumerable<CountryDTO>> GetCountries() => Ok(_BLL.GetCountries());
 
         [HttpPost]
         [Route("addCountry")]
