@@ -33,7 +33,7 @@ namespace CountriesApp.DAL
 
         public Country GetCountry(Guid id) => _dbContext.Countries.Where(x => x.Id == id).FirstOrDefault();
 
-        public Country GetCountry(string name) => _dbContext.Countries.Where(x => x.Name == name).FirstOrDefault();
+        public Country GetCountry(string name) => _dbContext.Countries.Where(x => x.Name.ToLower() == name).FirstOrDefault();
 
         public void UpdateCountry(Country country)
         {
