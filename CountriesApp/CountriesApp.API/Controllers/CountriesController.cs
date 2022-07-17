@@ -23,7 +23,7 @@ namespace CountriesApp.API.Controllers
 
         [HttpGet]
         [Route("getCountries")]
-        public IEnumerable<CountryDTO> GetCountries() => _BLL.GetCountries();
+        public ActionResult<CountryDTO> GetCountries() => Ok(_BLL.GetCountries());
 
         [HttpPost]
         [Route("addCountry")]
@@ -34,11 +34,11 @@ namespace CountriesApp.API.Controllers
 
         [HttpGet]
         [Route("getCountryById")]
-        public CountryDTO GetCountry(Guid id) => _BLL.GetCountry(id);
+        public ActionResult<CountryDTO> GetCountry(Guid id) => Ok(_BLL.GetCountry(id));
 
         [HttpGet]
         [Route("getCountryByName")]
-        public CountryDTO GetCountry(string name) => _BLL.GetCountry(name);
+        public ActionResult<CountryDTO> GetCountry(string name) => Ok(_BLL.GetCountry(name));
 
         [HttpPut]
         [Route("updateCountry")]
