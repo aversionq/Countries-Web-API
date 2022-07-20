@@ -43,6 +43,7 @@ namespace CountriesApp.BLL
         {
             var countriesEntities = _DAL.GetCountries();
             var countriesModels = _countriesMapper.Map<IEnumerable<Country>, IEnumerable<CountryDTO>>(countriesEntities).ToList();
+            countriesModels.ForEach(country => country.CountDensity());
 
             return countriesModels;
         }
@@ -51,6 +52,7 @@ namespace CountriesApp.BLL
         {
             var countryEntity = _DAL.GetCountry(id);
             var countryModel = _countriesMapper.Map<Country, CountryDTO>(countryEntity);
+            countryModel?.CountDensity();
 
             return countryModel;
         }
@@ -59,6 +61,7 @@ namespace CountriesApp.BLL
         {
             var countryEntity = _DAL.GetCountry(name.ToLower());
             var countryModel = _countriesMapper.Map<Country, CountryDTO>(countryEntity);
+            countryModel?.CountDensity();
 
             return countryModel;
         }
