@@ -13,6 +13,5 @@ namespace CountriesApp.BLL.Interfaces
         public void AddCountry(CountryDTO country);
         public void DeleteCountry(Guid id);
         public void UpdateCountry(CountryDTO country);
-        public void CountDensity(CountryDTO country);
     }
 }

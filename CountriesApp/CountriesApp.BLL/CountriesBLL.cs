@@ -32,11 +32,6 @@ namespace CountriesApp.BLL
             _DAL.AddCountry(countryToAdd);
         }
 
-        public void CountDensity(CountryDTO country)
-        {
-            country.Density = country.Population / country.Area;
-        }
-
         public void DeleteCountry(Guid id)
         {
             var countryToDelete = new Country { Id = id };
@@ -49,8 +44,6 @@ namespace CountriesApp.BLL
             var countriesEntities = _DAL.GetCountries();
             var countriesModels = _countriesMapper.Map<IEnumerable<Country>, IEnumerable<CountryDTO>>(countriesEntities).ToList();
 
-            countriesModels.ForEach(country => CountDensity(country));
-
             return countriesModels;
         }
 
@@ -58,7 +51,6 @@ namespace CountriesApp.BLL
         {
             var countryEntity = _DAL.GetCountry(id);
             var countryModel = _countriesMapper.Map<Country, CountryDTO>(countryEntity);
-            CountDensity(countryModel);
 
             return countryModel;
         }
@@ -67,7 +59,6 @@ namespace CountriesApp.BLL
         {
             var countryEntity = _DAL.GetCountry(name.ToLower());
             var countryModel = _countriesMapper.Map<Country, CountryDTO>(countryEntity);
-            CountDensity(countryModel);
 
             return countryModel;
         }
