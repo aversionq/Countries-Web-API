@@ -8,6 +8,7 @@ using CountriesApp.BLL;
 using CountriesApp.BLL.Interfaces;
 using CountriesApp.BLL.Models;
 using CountriesApp.API.Tools;
+using CountriesApp.API.Models;
 
 namespace CountriesApp.API.Controllers
 {
@@ -38,7 +39,7 @@ namespace CountriesApp.API.Controllers
         /// <param name="country"></param>
         [HttpPost]
         [Route("addCountry")]
-        public IActionResult AddCountry([FromBody] CountryDTO country)
+        public IActionResult AddCountry([FromBody] CountryWebApiDTO country)
         {
             _BLL.AddCountry(country);
             return Ok();
