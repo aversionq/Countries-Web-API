@@ -19,9 +19,21 @@ namespace CountriesApp.BLL
         public CountriesBLL()
         {
             _DAL = new CountriesDAL();
-            var countriesConfig = new MapperConfiguration(cfg => cfg.CreateMap<Country, CountryDTO>().ReverseMap());
+            SetupMapper();
+        }
 
-            _countriesMapper = new Mapper(countriesConfig);
+        /* 
+         * I'm not sure that creating another constructor for tests is a good practice,
+         * but this is the only solution I figured out. I tried to make one repo interface
+         * for BLL and DAL but repo should return entities, so I didn't understand how
+         * BLL will correctly implement it.
+         * Also API layer should not have access to DAL, so that's why I couldn't make only one
+         * constructor with ICountriesDAL param.
+        */
+        public CountriesBLL(ICountriesDAL dal)
+        {
+            _DAL = dal;
+            SetupMapper();
         }
 
         public void AddCountry(CountryDTO country)
@@ -70,6 +82,12 @@ namespace CountriesApp.BLL
         {
             var countryEntity = _countriesMapper.Map<CountryDTO, Country>(country);
             _DAL.UpdateCountry(countryEntity);
+        }
+
+        private void SetupMapper()
+        {
+            var countriesConfig = new MapperConfiguration(cfg => cfg.CreateMap<Country, CountryDTO>().ReverseMap());
+            _countriesMapper = new Mapper(countriesConfig);
         }
     }
 }
