@@ -8,6 +8,8 @@ using CountriesApp.BLL;
 using CountriesApp.BLL.Interfaces;
 using CountriesApp.BLL.Models;
 using CountriesApp.API.Tools;
+using CountriesApp.API.Models;
+using AutoMapper;
 
 namespace CountriesApp.API.Controllers
 {
@@ -17,9 +19,13 @@ namespace CountriesApp.API.Controllers
     {
         private ICountriesBLL _BLL;
         private CountriesControllerHelper _countriesControllerHelper;
+        private Mapper _mapper;
 
         public CountriesController()
         {
+            var countriesConfig = new MapperConfiguration(cfg => cfg.CreateMap<CountryWebApiDTO, CountryDTO>().ReverseMap());
+            _mapper = new Mapper(countriesConfig);
+
             _BLL = new CountriesBLL();
             _countriesControllerHelper = new CountriesControllerHelper();
         }
@@ -38,9 +44,10 @@ namespace CountriesApp.API.Controllers
         /// <param name="country"></param>
         [HttpPost]
         [Route("addCountry")]
-        public IActionResult AddCountry([FromBody] CountryDTO country)
+        public IActionResult AddCountry([FromBody] CountryWebApiDTO country)
         {
-            _BLL.AddCountry(country);
+            var countryToAdd = _mapper.Map<CountryWebApiDTO, CountryDTO>(country);
+            _BLL.AddCountry(countryToAdd);
             return Ok();
         }
 
