@@ -10,6 +10,7 @@ using CountriesApp.BLL.Models;
 using CountriesApp.API.Tools;
 using CountriesApp.API.Models;
 using AutoMapper;
+using CountriesApp.Dependencies;
 
 namespace CountriesApp.API.Controllers
 {
@@ -26,7 +27,7 @@ namespace CountriesApp.API.Controllers
             var countriesConfig = new MapperConfiguration(cfg => cfg.CreateMap<CountryWebApiDTO, CountryDTO>().ReverseMap());
             _mapper = new Mapper(countriesConfig);
 
-            _BLL = new CountriesBLL();
+            _BLL = DependencyResolver.Instance.CountriesBLL;
             _countriesControllerHelper = new CountriesControllerHelper();
         }
 
