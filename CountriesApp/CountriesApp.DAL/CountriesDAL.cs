@@ -15,6 +15,9 @@ namespace CountriesApp.DAL
         public CountriesDAL()
         {
             _dbContext = new CountriesDbContext();
+            // The code below makes the DeleteCountry method work.
+            // For some reason it had some tracking issues without it.
+            _dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public void AddCountry(Country country)
