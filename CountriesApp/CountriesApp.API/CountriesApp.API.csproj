@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CountriesApp.BLL\CountriesApp.BLL.csproj" />
+    <ProjectReference Include="..\CountriesApp.Dependencies\CountriesApp.Dependencies.csproj" />
   </ItemGroup>
 
 
