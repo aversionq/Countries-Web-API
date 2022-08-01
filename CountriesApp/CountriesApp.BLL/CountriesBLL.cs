@@ -16,20 +16,6 @@ namespace CountriesApp.BLL
         private ICountriesDAL _DAL;
         private Mapper _countriesMapper;
 
-        public CountriesBLL()
-        {
-            _DAL = new CountriesDAL();
-            SetupMapper();
-        }
-
-        /* 
-         * I'm not sure that creating another constructor for tests is a good practice,
-         * but this is the only solution I figured out. I tried to make one repo interface
-         * for BLL and DAL but repo should return entities, so I didn't understand how
-         * BLL will correctly implement it.
-         * Also API layer should not have access to DAL, so that's why I couldn't make only one
-         * constructor with ICountriesDAL param.
-        */
         public CountriesBLL(ICountriesDAL dal)
         {
             _DAL = dal;
