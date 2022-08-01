@@ -20,6 +20,6 @@ namespace CountriesApp.Dependencies
         public ICountriesDAL CountriesDAL => _countriesDAL ??= new CountriesDAL();
 
         private ICountriesBLL _countriesBLL;
-        public ICountriesBLL CountriesBLL => _countriesBLL ??= new CountriesBLL();
+        public ICountriesBLL CountriesBLL => _countriesBLL ??= new CountriesBLL(CountriesDAL);
     }
 }
